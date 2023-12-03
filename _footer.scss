@@ -1,0 +1,104 @@
+$b-blue: #4358f6;
+$f-white: #fff;
+$f-black: #000;
+
+@mixin body($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin btn($bg, $padx, $pady, $color, $b-red, $border) {
+  background-color: $bg;
+  padding: $padx $pady;
+  color: $color;
+  border-radius: $b-red;
+  border: $border;
+}
+@mixin hover($property, $color) {
+  &:hover {
+    #{$property}: $color;
+  }
+}
+
+
+@mixin display($dis, $j-cont, $a-items) {
+  display: $dis;
+  justify-content: $j-cont;
+  align-items: $a-items;
+}
+
+// ---------------Footer-------------------------
+
+.footer {
+    @include body(100%, 340px);
+    background-color: #000;
+    .logo {
+      @include display(flex, space-between, center);
+      padding: 18px;
+      .pic {
+        width: 150px;
+      }
+      .icons {
+        display: flex;
+        p {
+          color: $f-white;
+          margin-right: 15px;
+        }
+        img {
+          margin-right: 15px;
+        }
+      }
+    }
+    hr {
+      margin: 10px;
+      border: 1px solid grey;
+    }
+    .courses {
+      @include display(flex, center, center);
+      .names {
+        width: 70%;
+        padding: 20px;
+        ul {
+          @include display(grid, space-between, center);
+          grid-template-columns: repeat(3, 1fr);
+          list-style: none;
+          li {
+            padding: 10px;
+            a {
+              text-decoration: none;
+              color: #bbb2aa;
+              text-align: center;
+              @include hover(color, $b-blue);
+            }
+          }
+        }
+      }
+      .telegram {
+        p {
+          color: $f-white;
+          font-weight: 500;
+          text-align: center;
+        }
+        button {
+          @include btn($f-white, 15px, 25px, #607af7, 10px, none);
+          font-size: 15px;
+          font-weight: 500;
+  
+          margin-top: 10px;
+        }
+      }
+    }
+    .bottom {
+      @include display(flex, space-between, center);
+      p {
+        color: #736c6d;
+        margin-top: 25px;
+        margin-left: 10px;
+      }
+      h6 {
+        color: #736c6d;
+        margin-top: 25px;
+        margin-right: 10px;
+      }
+    }
+  }

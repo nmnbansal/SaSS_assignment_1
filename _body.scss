@@ -1,0 +1,79 @@
+$b-blue: #4358f6;
+$f-white: #fff;
+$f-black: #000;
+
+@mixin body($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin btn($bg, $padx, $pady, $color, $b-rad, $border) {
+  background-color: $bg;
+  padding: $padx $pady;
+  color: $color;
+  border-radius: $b-rad;
+  border: $border;
+}
+@mixin hover($property, $color) {
+  &:hover {
+    #{$property}: $color;
+  }
+}
+
+@mixin display($dis, $j-cont, $a-items) {
+  display: $dis;
+  justify-content: $j-cont;
+  align-items: $a-items;
+}
+
+// -----------------Main Body--------------------------------
+
+.font {
+    @include body(100%, 600px);
+    text-align: center;
+    background-color: #f2f6ff;
+    h1 {
+      font-size: 50px;
+      padding: 120px 60px 30px 60px;
+      font-weight: 600;
+    }
+    h3 {
+      font-size: 25px;
+      color: #59555d;
+      font-weight: 400;
+    }
+  }
+  .input {
+    @include display(flex, space-around, none);
+    margin-top: 80px;
+
+    .btn {
+      .btn01 {
+        @include btn($b-blue, 20px, 30px, $f-white, 10px, none);
+        padding: 20px 30px;
+        font-weight: 500;
+        font-size: 15px;
+        margin-right: 10px;
+      }
+      .btn02 {
+        @include btn($f-white, 20px, 50px, $f-black, 10px, none);
+        font-size: 15px;
+        font-weight: 500;
+        margin-right: 10px;
+      }
+  
+      .btn03 {
+        @include btn($f-white, 20px, 50px, $f-black, 10px, none);
+        font-size: 15px;
+        font-weight: 500;
+      }
+    }
+   .searchbox {
+      input {
+        @include btn($f-white, 20px, 60px, $f-black, 10px, none);
+        font-size: 18px;
+        font-weight: 500;
+        // height: 20px;
+      }
+    }
+  }

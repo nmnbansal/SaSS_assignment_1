@@ -1,0 +1,96 @@
+$b-blue: #4358f6;
+$f-white: #fff;
+$f-black: #000;
+
+@mixin body($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin btn($bg, $padx, $pady, $color, $b-red, $border) {
+  background-color: $bg;
+  padding: $padx $pady;
+  color: $color;
+  border-radius: $b-red;
+  border: $border;
+}
+@mixin hover($property, $color) {
+  &:hover {
+    #{$property}: $color;
+  }
+}
+
+@mixin card($width, $height, $border) {
+  width: $width;
+  height: $height;
+  border-radius: $border;
+}
+
+@mixin display($dis, $j-cont, $a-items) {
+  display: $dis;
+  justify-content: $j-cont;
+  align-items: $a-items;
+}
+
+// ---------------Speaker Card------------------------------
+
+.card {
+    @include body(100%, 400px);
+    @include display(flex, space-evenly, none);
+    margin-top: -50px;
+    .date {
+      @include card(150px, 150px, 10px);
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      .nov {
+        padding: 30px;
+        h1 {
+          font-size: 65px;
+          font-weight: 800;
+          color: #555555;
+        }
+        p {
+          margin-top: 30px;
+        }
+      }
+    }
+    .time {
+      @include card(68%, 280px, 10px);
+      display: flex;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      img {
+        @include body(450px,280px);
+        border-radius: 10px 0 0 10px;
+      }
+      .box {
+        text-align: start;
+        .font1 {
+          margin-top: 20px;
+          margin-left: 5px;
+          span {
+            color: $b-blue;
+          }
+        }
+        .hline {
+          @include display(flex, space-around, center);
+          margin-top: 20px;
+          .line {
+            text-align: center;
+            hr {
+              width: 120px;
+              border: 2px solid green;
+            }
+          }
+          button {
+            @include btn($b-blue, 12px, 30px, $f-white, 10px, none);
+            margin-left: 10px;
+          }
+        }
+        hr {
+          margin-top: 10px;
+        }
+        .para {
+          padding: 10px;
+        }
+      }
+    }
+  }
